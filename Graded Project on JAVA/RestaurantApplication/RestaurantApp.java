@@ -22,7 +22,7 @@ public class RestaurantApp {
 
                 if (scanner.hasNextInt()) {
                     int choice = scanner.nextInt();
-                    scanner.nextLine(); 
+                    scanner.nextLine();
 
                     switch (choice) {
                         case 1:

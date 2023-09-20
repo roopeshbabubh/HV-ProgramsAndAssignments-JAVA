@@ -1,13 +1,27 @@
 OrderID,Items Details,Date,TotalAmount,Status
-1,"Item : Burger   Price: Rs.250.0
+1,"Item : Pizza   Price: Rs.650.0
+Item : Fries   Price: Rs.150.0
+Item : Bhel Puri   Price: Rs.100.0
+Item : Sev Puri   Price: Rs.70.0
+",2023-09-20,Rs.970.0,delivered
+2,"Item : Aloo Tikki Chaat   Price: Rs.85.0
+Item : Fries   Price: Rs.150.0
+Item : Chana Chaat   Price: Rs.50.0
+Item : Chole Samosa Chaat   Price: Rs.130.0
+Item : Sev Puri   Price: Rs.70.0
+",2023-09-20,Rs.485.0,delivered
+3,"Item : Chana Chaat   Price: Rs.50.0
+Item : Aloo Tikki Chaat   Price: Rs.85.0
+Item : Dahi Puri   Price: Rs.95.0
+Item : Chana Chaat   Price: Rs.50.0
+",2023-09-20,Rs.280.0,delivered
+4,"Item : Pizza   Price: Rs.650.0
+Item : Bhel Puri   Price: Rs.100.0
+Item : Aloo Tikki Chaat   Price: Rs.85.0
+Item : Dahi Puri   Price: Rs.95.0
+",2023-09-20,Rs.930.0,delivered
+5,"Item : Fries   Price: Rs.150.0
+Item : Sev Puri   Price: Rs.70.0
+Item : Dahi Puri   Price: Rs.95.0
+Item : Burger   Price: Rs.250.0
 ",2023-09-20,Rs.0.0,Canceled
-2,"Item : Burger   Price: Rs.250.0
-",2023-09-20,Rs.0.0,Canceled
-3,"Item : Burger   Price: Rs.250.0
-",2023-09-20,Rs.250.0,delivered
-4,"Item : Burger   Price: Rs.250.0
-",2023-09-20,Rs.250.0,delivered
-5,"Item : Burger   Price: Rs.250.0
-",2023-09-20,Rs.0.0,Canceled
-6,"Item : Burger   Price: Rs.250.0
-",2023-09-20,Rs.250.0,delivered

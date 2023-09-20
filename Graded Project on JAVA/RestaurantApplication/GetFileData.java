@@ -12,20 +12,33 @@ public class GetFileData {
     String menuItemData = "menuItemData.csv";
     String collectionReportData = "collection_report.csv";
 
-    public void createMenuItemDataCSVFile() {
-        String header = "ItemID,Item Name,Price\n";
-
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(menuItemData))) {
-
-            bufferedWriter.write(header);
-            bufferedWriter.write("1,Burger,250\n");
-            bufferedWriter.write("2,Pizza,650\n");
-            bufferedWriter.write("3,Fries,150\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    You can generate and save data in "menuItemData.csv" by calling the 'createMenuItemDataCSVFile()' method
+//    after initializing it within the 'initializeFiles()' method.
+//    public void createMenuItemDataCSVFile() {
+//        String header = "ItemID,Item Name,Price\n";
+//
+//        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(menuItemData))) {
+//
+//            bufferedWriter.write(header);
+//            bufferedWriter.write("1,Burger,250\n");
+//            bufferedWriter.write("2,Pizza,650\n");
+//            bufferedWriter.write("3,Fries,150\n");
+//            bufferedWriter.write("4,Bhel Puri,100\n");
+//            bufferedWriter.write("5,Sev Puri,70\n");
+//            bufferedWriter.write("6,Aloo Tikki Chaat,85\n");
+//            bufferedWriter.write("7,Dahi Puri,95\n");
+//            bufferedWriter.write("8,Chana Chaat,50\n");
+//            bufferedWriter.write("9,Ragda Pattice,55\n");
+//            bufferedWriter.write("10,Pav Bhaji,125\n");
+//            bufferedWriter.write("11,Chole Samosa Chaat,130\n");
+//            bufferedWriter.write("12,Kachori,30\n");
+//            bufferedWriter.write("13,Papdi,40\n");
+//            bufferedWriter.write("14,Dabeli,55\n");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public List<MenuItem> getMenuDataFromCSVFile() {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(menuItemData))) {
@@ -156,7 +169,7 @@ public class GetFileData {
     }
 
     public List<MenuItem> initializeFiles() {
-        createMenuItemDataCSVFile();
+//        createMenuItemDataCSVFile();
         createOrderDataCSVFile();
         return getMenuDataFromCSVFile();
     }
