@@ -58,7 +58,7 @@ public class GetFileData {
     public void createOrderDataCSVFile() {
         String header = "OrderID,Items Details,Date,TotalAmount,Status\n";
 
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(orderDataFileName))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(orderDataFileName, false))) {
             bufferedWriter.write(header);
         } catch (IOException e) {
             e.printStackTrace();
@@ -71,12 +71,12 @@ public class GetFileData {
         StringBuilder orderDetails = new StringBuilder();
         orderDetails.append(order.getOrderID()).append(",");
 
+        StringBuilder itemDetails = new StringBuilder();
         List<MenuItem> items = order.getItems();
-        orderDetails.append("\"");
         for (MenuItem item : items) {
-            orderDetails.append("Item : ").append(item.getName()).append("   Price: Rs.").append(item.getPrice()).append("\n");
+            itemDetails.append(item);
         }
-        orderDetails.append("\"");
+        orderDetails.append(itemDetails);
         orderDetails.append(",").append(dateFormat.format(order.getDate())).append(",");
         orderDetails.append("Rs." + order.getTotalAmount()).append(",");
         orderDetails.append(order.getStatus()).append("\n");
@@ -89,15 +89,53 @@ public class GetFileData {
     }
 
     public void updateOrderDataToCSVFile(List<Order> orders) {
-        try (FileWriter fileWriter = new FileWriter(orderDataFileName, false)) {
-            fileWriter.write("");
-            createOrderDataCSVFile();
+        // Read the existing orders from the CSV file
+        List<String> existingOrders = readOrderDataCSVFile();
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(orderDataFileName, true))) {
+            createOrderDataCSVFile();  // Rewrite the header
+
+            // Append existing orders except those with matching dates
+            for (String existingOrder : existingOrders) {
+                bufferedWriter.write(existingOrder+"\n");
+            }
+
+            // Append new orders
+            for (Order order : orders) {
+                saveOrderDataToCSVFile(order);
+            }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (Order order: orders) {
-            saveOrderDataToCSVFile(order);
+    }
+
+    public List<String> readOrderDataCSVFile() {
+        List<String> lines = new ArrayList<>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate = dateFormat.format(new Date());
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(orderDataFileName))) {
+            String line = bufferedReader.readLine(); // Consume the header
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] fields = line.split(",");
+
+                // Ensure that there are at least 5 fields in the CSV line
+                if (fields.length >= 5) {
+                    String oldDate = fields[2];
+
+
+                    // Check if the order date is not equal to the current date
+                    if (!oldDate.equals(currentDate)) {
+                        lines.add(line);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return lines;
     }
 
     public void createCollectionReportCSVFile() {
@@ -135,7 +173,6 @@ public class GetFileData {
     public void saveCollectionReportToCSV(CollectionReport report) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(collectionReportData, true))) {
             List<CollectionReport> collectionReports = readCollectionReportCSVFile();
-            bufferedWriter.write("");
             createCollectionReportCSVFile();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String formattedDate = dateFormat.format(report.getDate());
@@ -170,7 +207,6 @@ public class GetFileData {
 
     public List<MenuItem> initializeFiles() {
 //        createMenuItemDataCSVFile();
-        createOrderDataCSVFile();
         return getMenuDataFromCSVFile();
     }
 }

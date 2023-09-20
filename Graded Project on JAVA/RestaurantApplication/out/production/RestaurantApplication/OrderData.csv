@@ -1,1 +1,9 @@
 OrderID,Items Details,Date,TotalAmount,Status
+9211,[ menuID=1 name='Burger' price=250.0],2023-09-21,Rs.250.0,delivered
+9212,[ menuID=1 name='Burger' price=250.0],2023-09-21,Rs.250.0,delivered
+9213,[ menuID=1 name='Burger' price=250.0],2023-09-21,Rs.250.0,delivered
+9214,[ menuID=1 name='Burger' price=250.0],2023-09-21,Rs.0.0,Canceled
+9201,[ menuID=1 name='Burger' price=250.0],2023-09-20,Rs.250.0,delivered
+9202,[ menuID=1 name='Burger' price=250.0][ menuID=2 name='Pizza' price=650.0][ menuID=3 name='Fries' price=150.0][ menuID=4 name='Bhel Puri' price=100.0][ menuID=5 name='Sev Puri' price=70.0],2023-09-20,Rs.1220.0,delivered
+9203,[ menuID=1 name='Burger' price=250.0],2023-09-20,Rs.250.0,delivered
+9204,[ menuID=2 name='Pizza' price=650.0],2023-09-20,Rs.0.0,Canceled

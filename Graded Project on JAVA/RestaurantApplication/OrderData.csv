@@ -1,27 +1,7 @@
 OrderID,Items Details,Date,TotalAmount,Status
-1,"Item : Pizza   Price: Rs.650.0
-Item : Fries   Price: Rs.150.0
-Item : Bhel Puri   Price: Rs.100.0
-Item : Sev Puri   Price: Rs.70.0
-",2023-09-20,Rs.970.0,delivered
-2,"Item : Aloo Tikki Chaat   Price: Rs.85.0
-Item : Fries   Price: Rs.150.0
-Item : Chana Chaat   Price: Rs.50.0
-Item : Chole Samosa Chaat   Price: Rs.130.0
-Item : Sev Puri   Price: Rs.70.0
-",2023-09-20,Rs.485.0,delivered
-3,"Item : Chana Chaat   Price: Rs.50.0
-Item : Aloo Tikki Chaat   Price: Rs.85.0
-Item : Dahi Puri   Price: Rs.95.0
-Item : Chana Chaat   Price: Rs.50.0
-",2023-09-20,Rs.280.0,delivered
-4,"Item : Pizza   Price: Rs.650.0
-Item : Bhel Puri   Price: Rs.100.0
-Item : Aloo Tikki Chaat   Price: Rs.85.0
-Item : Dahi Puri   Price: Rs.95.0
-",2023-09-20,Rs.930.0,delivered
-5,"Item : Fries   Price: Rs.150.0
-Item : Sev Puri   Price: Rs.70.0
-Item : Dahi Puri   Price: Rs.95.0
-Item : Burger   Price: Rs.250.0
-",2023-09-20,Rs.0.0,Canceled
+9211,[ menuID=1 name='Burger' price=250.0],2023-09-21,Rs.250.0,delivered
+9212,[ menuID=5 name='Sev Puri' price=70.0][ menuID=6 name='Aloo Tikki Chaat' price=85.0][ menuID=7 name='Dahi Puri' price=95.0][ menuID=8 name='Chana Chaat' price=50.0][ menuID=9 name='Ragda Pattice' price=55.0][ menuID=1 name='Burger' price=250.0],2023-09-21,Rs.605.0,delivered
+9201,[ menuID=1 name='Burger' price=250.0],2023-09-20,Rs.250.0,delivered
+9202,[ menuID=1 name='Burger' price=250.0][ menuID=2 name='Pizza' price=650.0][ menuID=3 name='Fries' price=150.0][ menuID=4 name='Bhel Puri' price=100.0][ menuID=5 name='Sev Puri' price=70.0],2023-09-20,Rs.1220.0,delivered
+9203,[ menuID=1 name='Burger' price=250.0],2023-09-20,Rs.250.0,delivered
+9204,[ menuID=2 name='Pizza' price=650.0],2023-09-20,Rs.0.0,Canceled

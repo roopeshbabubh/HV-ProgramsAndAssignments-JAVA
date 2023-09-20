@@ -24,8 +24,8 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return  "menuID=" + menuID +
-                ", name='" + name + '\'' +
-                ", price=" + price;
+        return  "[ menuID=" + menuID +
+                " name='" + name + '\'' +
+                " price=" + price + "]";
     }
 }

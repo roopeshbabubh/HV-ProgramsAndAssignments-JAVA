@@ -1,11 +1,12 @@
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 public class RestaurantApp {
     private static List<MenuItem> menuItems = new ArrayList<>();
     private static List<Order> orders = new ArrayList<>();
     private static GetFileData getFileData = new GetFileData();
-    private static int orderIDCounter = 1;
+    private static int orderIDCounter = generateOrderId();
 
     public static void main(String[] args) {
         menuItems = getFileData.initializeFiles();
@@ -37,6 +38,8 @@ public class RestaurantApp {
                         case 4:
                             System.out.println("Exiting the application.");
                             scanner.close();
+                            getFileData.updateOrderDataToCSVFile(orders);
+                            getCollectionReport();
                             System.exit(0);
                         default:
                             System.out.println("Invalid choice. Please try again.");
@@ -142,6 +145,16 @@ public class RestaurantApp {
         CollectionReport report = new CollectionReport(today, totalCollection);
         getFileData.saveCollectionReportToCSV(report);
         return report;
+    }
+
+//    OrderId is generated using the month, day, and an initial value
+    private static int generateOrderId() {
+        LocalDate currentDate = LocalDate.now();
+        int month = currentDate.getMonthValue();
+        int day = currentDate.getDayOfMonth();
+        int value = 1;
+        String result = month + "" + day + "" + value;
+        return Integer.parseInt(result);
     }
 }
 
