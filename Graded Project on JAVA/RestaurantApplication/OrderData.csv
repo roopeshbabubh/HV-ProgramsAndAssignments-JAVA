@@ -1,1 +1,13 @@
-
+OrderID,Items Details,Date,TotalAmount,Status
+1,"Item : Burger   Price: Rs.250.0
+",2023-09-20,Rs.0.0,Canceled
+2,"Item : Burger   Price: Rs.250.0
+",2023-09-20,Rs.0.0,Canceled
+3,"Item : Burger   Price: Rs.250.0
+",2023-09-20,Rs.250.0,delivered
+4,"Item : Burger   Price: Rs.250.0
+",2023-09-20,Rs.250.0,delivered
+5,"Item : Burger   Price: Rs.250.0
+",2023-09-20,Rs.0.0,Canceled
+6,"Item : Burger   Price: Rs.250.0
+",2023-09-20,Rs.250.0,delivered

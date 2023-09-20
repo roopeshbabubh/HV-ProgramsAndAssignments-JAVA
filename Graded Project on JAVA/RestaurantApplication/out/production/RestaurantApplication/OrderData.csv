@@ -1,30 +1,16 @@
+OrderID,Items Details,Date,TotalAmount,Status
 1,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
+Item : Pizza   Price: Rs.650.0
+Item : Fries   Price: Rs.150.0
+",2023-09-20,Rs.0.0,Canceled
 2,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
+Item : Pizza   Price: Rs.650.0
+Item : Fries   Price: Rs.150.0
+",2023-09-20,Rs.0.0,Canceled
 3,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
+Item : Pizza   Price: Rs.650.0
+",2023-09-20,Rs.900.0,delivered
 4,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-5,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-1,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-2,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-3,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-4,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-5,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.0.0,Canceled
-1,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-2,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-3,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.250.0,Placed
-4,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.0.0,Canceled
-5,"Item : Burger   Price: Rs.250.0
-",2023-09-15,Rs.0.0,Canceled
+Item : Pizza   Price: Rs.650.0
+Item : Fries   Price: Rs.150.0
+",2023-09-20,Rs.0.0,Canceled

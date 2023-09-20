@@ -1,13 +1,9 @@
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RestaurantApp {
     private static List<MenuItem> menuItems = new ArrayList<>();
     private static List<Order> orders = new ArrayList<>();
-    private static List<CollectionReport> collectionReports = new ArrayList<>();
     private static GetFileData getFileData = new GetFileData();
     private static int orderIDCounter = 1;
 
@@ -16,32 +12,41 @@ public class RestaurantApp {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\nRestaurant Management System");
-            System.out.println("1. Place Order");
-            System.out.println("2. Cancel Order");
-            System.out.println("3. Generate Daily Collection Report");
-            System.out.println("4. Exit");
-            System.out.print("Enter your choice: ");
+            try {
+                System.out.println("\nRestaurant Management System");
+                System.out.println("1. Place Order");
+                System.out.println("2. Cancel Order");
+                System.out.println("3. Generate Daily Collection Report");
+                System.out.println("4. Exit");
+                System.out.print("Enter your choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+                if (scanner.hasNextInt()) {
+                    int choice = scanner.nextInt();
+                    scanner.nextLine(); 
 
-            switch (choice) {
-                case 1:
-                    placeOrder(scanner);
-                    break;
-                case 2:
-                    cancelOrder(scanner);
-                    break;
-                case 3:
-                    generateCollectionReport();
-                    break;
-                case 4:
-                    System.out.println("Exiting the application.");
-                    scanner.close();
-                    System.exit(0);
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                    switch (choice) {
+                        case 1:
+                            placeOrder(scanner);
+                            break;
+                        case 2:
+                            cancelOrder(scanner);
+                            break;
+                        case 3:
+                            generateCollectionReport();
+                            break;
+                        case 4:
+                            System.out.println("Exiting the application.");
+                            scanner.close();
+                            System.exit(0);
+                        default:
+                            System.out.println("Invalid choice. Please try again.");
+                    }
+                } else {
+                    System.out.println("Invalid input. Please enter a valid integer choice.");
+                    scanner.nextLine();
+                }
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
             }
         }
     }
@@ -71,8 +76,9 @@ public class RestaurantApp {
 
         Order order = new Order(orderIDCounter++, selectedItems);
         orders.add(order);
-        getFileData.setOrderDataToCSVFile(order);
+        getFileData.saveOrderDataToCSVFile(order);
         System.out.println("Order placed successfully, Food will delivered soon. Order ID: " + order.getOrderID());
+        getCollectionReport();
     }
 
     private static void cancelOrder(Scanner scanner) {
@@ -95,6 +101,7 @@ public class RestaurantApp {
             System.out.println("Order not found.");
         }
         System.out.println(order);
+        getCollectionReport();
     }
 
     private static MenuItem findMenuItemByID(int id) {
@@ -117,6 +124,12 @@ public class RestaurantApp {
 
     private static void generateCollectionReport() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        CollectionReport report = getCollectionReport();
+        System.out.println("Daily Collection Report for " + dateFormat.format(report.getDate()) + ": Total Collection: Rs." + report.getTotalCollection());
+    }
+
+    private static CollectionReport getCollectionReport() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date today = new Date();
         double totalCollection = 0;
 
@@ -127,11 +140,8 @@ public class RestaurantApp {
         }
 
         CollectionReport report = new CollectionReport(today, totalCollection);
-        collectionReports.add(report);
-
-        System.out.println("\nDaily Collection Report for " + dateFormat.format(today) + ":");
-        System.out.println("Total Collection: Rs." + report.getTotalCollection());
+        getFileData.saveCollectionReportToCSV(report);
+        return report;
     }
-
 }
 

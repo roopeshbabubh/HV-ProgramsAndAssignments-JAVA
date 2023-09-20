@@ -14,7 +14,7 @@ public class Order {
         this.orderID = orderID;
         this.items = items;
         this.date = new Date();
-        this.status = "Placed";
+        this.status = "delivered";
         this.isCancelled = false;
         calculateTotalAmount();
     }
@@ -70,7 +70,6 @@ public class Order {
                 ", date=" + date +
                 ", totalAmount=" + totalAmount +
                 ", status='" + status + '\'' +
-                ", isCancelled=" + isCancelled +
                 '}';
     }
 }
