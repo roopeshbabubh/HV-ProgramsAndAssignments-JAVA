@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendar</title>
+    <style>
+      body {
+        height: 150vh;
+      }
+
+      :root {
+        --body-color: #e1ecc1;
+        --text-color: #468d22;
+      }
+
+      h1,
+      h2 {
+        color: var(--text-color);
+      }
+
+      .calendar {
+        margin-top: 3rem;
+        background-color: var(--body-color);
+        padding: 1rem;
+        height: 50rem;
+        width: 80rem;
+        display: grid;
+        grid-template-columns: 60rem 20rem;
+        grid-template-rows: 40rem 10rem;
+      }
+
+      .table-data {
+        padding: 2rem;
+      }
+
+      th,
+      td {
+        color: var(--text-color);
+        padding: 25px;
+        text-align: center;
+      }
+
+      .month-name {
+        color: var(--text-color);
+        font-size: 200px;
+      }
+
+      #vertical-string {
+        font-size: 20rem;
+        rotate: -90deg;
+      }
+
+      hr {
+        border-bottom: 2px solid var(--text-color);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="calendar">
+      <div class="table-data"></div>
+
+      <div class="month-name"><p id="vertical-string"></p></div>
+
+      <div>
+        <hr>
+        <h2>Notes</h2>
+      </div>
+    </div>
+
+    <script>
+      const mnts = { name: "JULY", ds: 31, laggOf: 4, monthShort: "JUL" };
+
+      const days = [
+        "SUNDAY",
+        "MONDAY",
+        "TUESDAY",
+        "WEDNESDAY",
+        "THURSDAY",
+        "FRIDAY",
+        "SATURDAY",
+      ];
+
+      const div = document.createElement("div");
+
+      const h1 = document.createElement("h1");
+      h1.textContent = mnts.name;
+      div.appendChild(h1);
+
+      const table = document.createElement("table");
+
+      const thead = document.createElement("thead");
+      const theadRow = document.createElement("tr");
+      days.forEach((day) => {
+        const th = document.createElement("th");
+        th.textContent = day;
+        theadRow.appendChild(th);
+      });
+      thead.appendChild(theadRow);
+
+      const tbody = document.createElement("tbody");
+
+      var startDay = mnts.laggOf;
+      var endDay = startDay;
+      var startDate = 1;
+      const lastDate = mnts.ds;
+
+      while (startDate <= lastDate) {
+        let daysInWeek = 1;
+        const tr = document.createElement("tr");
+        if (startDay == endDay) {
+          while (daysInWeek <= startDay) {
+            const td = document.createElement("td");
+            tr.appendChild(td);
+            daysInWeek++;
+            endDay = 0;
+          }
+        }
+        for (; daysInWeek <= 7; daysInWeek++) {
+          const td = document.createElement("td");
+          td.textContent = startDate;
+          tr.appendChild(td);
+          startDate++;
+          if (startDate > lastDate) {
+            break;
+          }
+        }
+        tbody.appendChild(tr);
+      }
+
+      table.appendChild(thead);
+      table.appendChild(tbody);
+      div.appendChild(table);
+
+      const tableData = document.querySelector(".table-data");
+      tableData.appendChild(div);
+
+      const verticalString = document.getElementById("vertical-string");
+      const textNode = document.createTextNode(mnts.monthShort);
+      verticalString.appendChild(textNode);
+    </script>
+  </body>
+</html>

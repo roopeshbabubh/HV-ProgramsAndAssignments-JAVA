@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calendar</title>
+
+    <style>
+
+      body {
+        margin-top: 5rem;
+        height: 100vh;
+      }
+
+      :root {
+        --body-color: #e1ecc1;
+        --text-color: #468d22;
+      }
+
+      .calendar {
+        margin-left: 3rem;
+        padding: 1rem 0 2rem 3rem;
+        width: 90rem;
+        height: 60rem;
+        background-color: var(--body-color);
+        display: grid;
+        grid-template-columns: 66rem 24rem;
+      }
+      .c-wrap {
+        width: 66rem;
+        height: 60rem;
+        display: grid;
+        grid-template-columns: repeat(3, 20rem);
+        grid-template-rows: repeat(3, 15rem);
+        grid-column-gap: 3em;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+
+      th, td {
+        color: var(--text-color);
+        padding: 2px 10px 2px 13px;
+        text-align: center;
+      }
+
+      h5 {
+        margin-bottom: 0;
+      }
+
+      .year {
+        margin-top: 450px;
+        width: 384px;
+        height: 384px;
+        color: var(--text-color);
+        font-size: 23rem;
+        transform: rotate(-90deg);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="calendar">
+      <div class="c-wrap"></div>
+      <div class="year">2021</div>
+    </div>
+
+    <script>
+
+    const mnts = [
+      { name: "JANUARY", ds: 31 },
+      { name: "FEBRUARY", ds: 28 },
+      { name: "MARCH", ds: 31 },
+      { name: "APRIL", ds: 30 },
+      { name: "MAY", ds: 31 },
+      { name: "JUNE", ds: 30 },
+      { name: "JULY", ds: 31 },
+      { name: "AUGUST", ds: 31 },
+      { name: "SEPTEMBER", ds: 30 },
+      { name: "OCTOBER", ds: 31 },
+      { name: "NOVEMBER", ds: 30 },
+      { name: "DECEMBER", ds: 31 },
+    ];
+   
+    const days = ["S", "M", "T", "W", "T", "F", "S"];
+
+    let startDay = 5;
+    let endDay = startDay;
+    
+    mnts.forEach((m) => {
+      const a = document.createElement("a");
+      a.href = `/${m.name.toLowerCase()}.html`;
+    
+      const div = document.createElement("div");
+      div.classList.add(m.name);
+    
+      const h5 = document.createElement("h5");
+      h5.textContent = m.name;
+    
+      const hr1 = document.createElement("hr");
+    
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+    
+      days.forEach((day) => {
+        const th = document.createElement("th");
+        th.textContent = day;
+        thead.appendChild(th);
+      });
+    
+      const tbody = document.createElement("tbody");
+      let startDate = 1;
+      const lastDate = m.ds;
+    
+      while (startDate <= lastDate) {
+        let daysInWeek = 1;
+        const tr = document.createElement("tr");
+    
+        if (startDay == endDay) {
+          while (daysInWeek <= startDay) {
+            const td = document.createElement("td");
+            tr.appendChild(td);
+            daysInWeek++;
+            endDay = 0;
+          }
+        }
+    
+        for (; daysInWeek <= 7; daysInWeek++) {
+          const td = document.createElement("td");
+          td.textContent = startDate;
+          tr.appendChild(td);
+          startDate++;
+          if (startDate > lastDate) {
+            startDay = daysInWeek;
+            endDay = startDay;
+            break;
+          }
+        }
+    
+        tbody.appendChild(tr);
+      }
+    
+      table.appendChild(thead);
+      table.appendChild(tbody);
+    
+      div.appendChild(h5);
+      div.appendChild(hr1);
+      div.appendChild(table);
+    
+      a.appendChild(div);
+      document.body.appendChild(a);
+      const cWrapDiv = document.querySelector(".c-wrap");
+      cWrapDiv.appendChild(a);
+    });   
+     
+    </script>
+  </body>
+</html>
