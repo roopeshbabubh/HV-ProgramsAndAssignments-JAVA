@@ -1,0 +1,204 @@
+/* Reset some default styles */
+
+body, h1, p, a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure full-width image */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Main container styles */
+
+.main {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+
+.header {
+    background-color: #938f8f;
+    border-radius: 9px;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: auto; 
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.header-left a, .header-right a {
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.email-logo, .twiter-logo, .linkedIn-logo {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
+
+/* Image container styles */
+
+.image-container {
+    position: relative;
+    margin: 0.1rem;
+    background-image: url('./kebab picture.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.image-text {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 72px;
+    line-height: 86px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 6px 6px #000000;
+}
+
+/* Tag styles */
+
+.tag {
+    background-color: #ffffff;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tag-text {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 52px;
+    line-height: 32px;
+}
+
+.down-button {
+    width: 40px;
+    height: 40px;
+}
+
+/* Address styles */
+
+.address-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.address {
+    text-align: center;
+    background-color: #ebe8e8;
+    width: calc(30.33% - 1rem);
+    height: 15rem;
+    margin: 0.3rem;
+    padding: 1rem;
+    border: 5px solid #ffffff;
+}
+
+.address-text {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+/* Media Query */
+@media (max-width: 1200px) {
+
+    /* Header styles for smaller screens */
+    .header {
+        padding: 1rem;
+    }
+
+    .header-left, .header-right {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 1rem;
+    }
+
+    .header-left a, .header-right a {
+        margin-right: 5px;
+        padding: 5px;
+        font-size: 18px;
+    }
+
+    .email-logo, .twiter-logo, .linkedIn-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Image container styles for smaller screens */
+    .image-container {
+        height: 25rem;
+    }
+
+    .image-text {
+        font-size: 42px;
+        line-height: 56px;
+    }
+
+    /* Tag styles for smaller screens */
+    .tag {
+        padding: 0.5rem;
+    }
+
+    .tag-text {
+        font-size: 26px;
+    }
+
+    .down-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Address styles for smaller screens */
+    .address-box {
+        flex-direction: column;
+    }
+
+    .address {
+        width: 100%;
+        padding: 0.5rem;
+        height: 10rem;
+    }
+
+    .address-text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+}
+
+
+
+
