@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Race Starter</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #countdown {
+      font-size: 6em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    #go {
+      font-size: 6em;
+      color: #28a745;
+      display: none;
+    }
+
+    #startButton {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #restart {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown">5</div>
+  <div id="go">Go!</div>
+  <button id="startButton" onclick="startCountdown()">Start</button>
+  <button id="restart" onclick="startCountdown()">Replay</button>
+
+  <script>
+    let count = 5;
+    const countdownElement = document.getElementById('countdown');
+    const goElement = document.getElementById('go');
+    const startButton = document.getElementById('startButton');
+    const replayButton = document.getElementById('restart');
+
+    function startCountdown() {
+      countdownElement.style.display = 'block';
+      goElement.style.display = 'none';
+      replayButton.style.display = 'none';
+
+      startButton.style.display = 'none'; 
+
+      let countdownInterval = setInterval(() => {
+        countdownElement.textContent = count;
+        count--;
+
+        if (count < 0) {
+          clearInterval(countdownInterval);
+          showGo();
+        }
+      }, 1000);
+    }
+
+    function showGo() {
+      countdownElement.style.display = 'none';
+      goElement.style.display = 'block';
+      replayButton.style.display = 'block';
+      startButton.style.display = 'none';
+      count = 5; 
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="./todoList.css">
+</head>
+<body>
+  <header>
+    Todo List
+  </header>
+  <div>
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add Task</button>
+  </div>
+  <ul id="taskList">
+    <!-- Task list will be displayed here -->
+  </ul>
+  <div>
+    <p>Total tasks added: <span id="totalTasks">0</span></p>
+    <p>Total tasks completed: <span id="completedTasks">0</span></p>
+  </div>
+  <footer>
+    © 2023 Todo List App
+  </footer>
+  <script src="./todoList.js"></script>
+</body>
+</html>
