@@ -1,0 +1,121 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8ec05;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Add this CSS for three columns layout */
+.products {
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-card {
+    width: 30%; /* Adjust the width based on your design */
+    margin-bottom: 20px; /* Add some spacing between product cards */
+}
+
+.image-container img {
+    width: 350px; /* Set a specific width */
+    height: 250px; /* Set a specific height */
+    object-fit: contain; /* Optional: Maintain aspect ratio and cover the entire container */
+}
+
+.details-container {
+    padding: 10px;
+    border: 1px solid #ddd; /* Add a border for a cleaner look */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #fff; /* Add a background color */
+}
+
+.details-container h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 8px; /* Add some space between product name and other details */
+}
+
+.details-container h2:hover {
+    white-space: normal;
+    text-overflow: clip;
+}
+
+.search-bar {
+    flex: 1;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.search-box {
+    width: 300px; /* Set the width of the search box */
+    height: 43px; /* Set the height of the search box */
+    border: 3px solid #000;
+    font-size: 26px; /* Set the font size for better readability */
+    /* Add any other styling as needed */
+}
+
+.search-button {
+    background-color: #000;
+    height: 49px; /* Set the height of the search box */
+    font-size: 26px; /* Set the font size for better readability */
+    color: #fff; /* Set the font color to white */
+    /* Add any other styling as needed */
+}
+
+footer {
+    background-color: #f8ec05;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .products {
+        padding: 3%; /* Adjust the percentage for smaller screens */
+    }
+
+    .product-card {
+        width: 48%; /* Adjust the width for smaller screens */
+    }
+
+    .search-box {
+        width: 70%; /* Adjust the width for smaller screens */
+    }
+
+    .search-button {
+        height: 40px; /* Adjust the height for smaller screens */
+        font-size: 20px; /* Adjust the font size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .products {
+        padding: 2%; /* Adjust the percentage for smaller screens */
+    }
+
+    .product-card {
+        width: 98%; /* Adjust the width for even smaller screens */
+    }
+
+    .search-box {
+        width: 50%; /* Adjust the width for even smaller screens */
+        font-size: 18px;
+    }
+
+    .search-button {
+        height: 50px; /* Adjust the height for even smaller screens */
+        font-size: 18px; /* Adjust the font size for even smaller screens */
+    }
+}
